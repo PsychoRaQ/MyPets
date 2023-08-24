@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+
+<ul class="list-posts">
+{% for p in posts %}
+<li>
+<table border="0" class="profile-table">
+<tr><td valign="top">
+<div class="profile-ava"><img src="{{ url_for('getPetAva', id_pet=p.id) }}"></div>
+</td>
+<td valign="top" class="profile-panel">
+<p class="title"><a href="{{url_for('showPet',id_pet=p.id)}}">{{p.name}}</a></p>
+<p class="annonce">Хозяин: {{p.owner}}</p>
+<p class="annonce">Возраст: {{p.old}}</p>
+<p class="annonce">Ищет дом: {{ p.home }}</p>
+</td>
+</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

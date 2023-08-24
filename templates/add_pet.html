@@ -1,0 +1,27 @@
+ {% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+
+<table border="0" class="profile-table">
+	<tr><td valign="top">
+		<form action="{{add_pet}}" method="post" class="form-contact" enctype="multipart/form-data">
+		<div class="profile-ava"><img src="{{url_for('static', filename='pet_image/pix_art.jpg')}}"></div>
+		<div class="profile-load">
+		<p><input type="file" name="file">
+		</div>
+	</td>
+	<td valign="top" class="profile-panel">
+		<ul class="profile-info">
+		<li><label>Кличка: </label><input type="text" name="petname" required/></li>
+		<li><label>Возраст питомца: </label><input type="text" name="old" required/></li>
+		<li><input type="checkbox" name="ifHome">Питомец ищет дом</li>
+		<li><input type="submit" value="Добавить"></li>
+		</ul>
+	</td></tr>
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,17 @@
+ {% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+
+<form action="/add_pet" method="post" class="form-contact">
+<p><label><b>Добавить животное:</b></label></p>
+<p><label>Кличка:</label><input type="text" name="petname" required/></p>
+<!-- <p><label>Имя владельца:</label><input type="text" name="owner" required/></p> -->
+<p><label>Возраст питомца:</label><input type="text" name="old" required/></p>
+<p><input type="checkbox" name="ifHome">Питомец ищет дом</p>
+<p><input type="submit" value="Добавить"></p>
+</form>
+{% endblock %}
