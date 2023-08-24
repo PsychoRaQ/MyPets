@@ -1,0 +1,37 @@
+ {% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+(Важно: данные пользователей сохранять по одному)
+
+{% for cat,msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{ msg }}</div>
+{% endfor %}
+
+<ul class="list-posts">
+{% for p in posts %}
+<li>
+<table border="0" class="profile-table">
+<tr><td valign="top">
+<div class="profile-ava"><img src="{{ url_for('getUserava', user_id = p.user_id) }}"></div>
+<div class="profile-load">
+        <form action="{{ url_for('admin_edit_profile_with_id', user_id = p.user_id) }}" method="POST" enctype="multipart/form-data">
+            <p><input type="file" name="file">
+        </div>
+</td>
+<td valign="top" class="profile-panel-2">
+<li>{{ p.name }}</li>
+<li><label>ID: </label>{{ p.user_id }}</li>
+<li><label>ФИО: </label><input type="text" name="username" value="{{ p.username }}"  required/></li>
+<li><label>E-Mail: </label><input type="email" name="email" value="{{ p.email }}"  required/></li>
+<li><input type="submit" value="Сохранить"></li>
+</form>
+</td>
+</li>
+<hr>
+{% endfor %}
+</ul>
+
+
+
+{% endblock %}

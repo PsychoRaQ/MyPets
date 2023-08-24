@@ -2,5 +2,23 @@
 
 {% block content %}
 {{ super() }}
-{{ post }}
+
+
+
+
+<table border="0" class="profile-table">
+	<tr><td valign="top">
+		<div class="profile-ava"><img src="{{ url_for('getPetAva', id_pet=post.id) }}"></div>
+	</td>
+	<td valign="top" class="profile-panel">
+		<ul class="profile-info">
+		<li>Имя: {{post.name}}</li>
+		<li>Возраст: {{post.old}}</li>
+		<li>Хозяин: <a href="{{ url_for('profile', user_id = post.owner_id) }}">{{post.owner}}</a></li>
+		<li>Ищет дом: {{post.home}}</li>
+		</ul>
+	</td></tr>
+</table>
+<textarea class="textpole" rows="7" cols="40" name="about" disabled placeholder="Расскажите о питомце...">{{post.about}}</textarea>
+
 {% endblock %}

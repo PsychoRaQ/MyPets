@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+<hr>
+<ul class="list-posts">
+{% for p in posts %}
+<li>
+<table border="0" class="profile-table">
+<tr><td valign="top">
+<div class="profile-ava"><img src="{{ url_for('getPetAva', id_pet=p.id) }}"></div>
+
+<div style="margin-left: 5px "><a href="{{url_for('edit_pet',id_pet=p.id)}}"><button style="width: 150px; height: 30px;">Редактировать</button></a></div>
+</td>
+<td valign="top" class="profile-panel">
+<p class="title"><a href="{{url_for('showPet',id_pet=p.id)}}">{{p.name}}</a></p>
+<p class="annonce">Хозяин: <a href="{{ url_for('profile',user_id=p.owner_id) }}">{{p.owner}}</a></p>
+<p class="annonce">Возраст: {{p.old}}</p>
+<p class="annonce">Ищет дом: {{ p.home }}</p>
+</td>
+</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

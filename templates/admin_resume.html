@@ -1,0 +1,36 @@
+ {% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+
+{% for cat,msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{ msg }}</div>
+{% endfor %}
+<p><a href="{{ url_for('admin_resume') }}"><button style="width: 170px; height: 25px">Назад</button></a></p>
+<ul class="list-posts" style="max-width: 1600px;">
+{% for p in posts %}
+<form action="{{url_for('resume_id',res_id=p.id)}}" method="post" class="form-contact">
+<li>
+<table border="0" class="profile-table">
+<tr><td valign="top">
+<div>
+<p class="annonce"><b>ID заявки: </b>{{p.id}}</p>
+<p class="annonce"><b>ФИО: </b>{{p.name}}</p>
+<p class="annonce"><b>E-Mail: </b>{{ p.email }}</p>
+<p class="annonce"><b>ID пользователя: </b>{{ p.user_id }}</p>
+<p class="annonce"><b>Дата и время заявки: </b>{{p.date}}</p>
+<p><input type="submit" style="width: 170px; height: 50px" value="Отправить"></p>
+</div>
+</td>
+<td valign="top" class="profile-panel">
+<p class=""><b>Обращение: </b>{{ p.msg }}</p>
+    <p><textarea rows="10" cols="70" name="resume" placeholder="Введите ответ на заявку...">{{ p.resume }}</textarea></p>
+</td>
+</li>
+</form>
+{% endfor %}
+
+
+
+</ul>
+{% endblock %}

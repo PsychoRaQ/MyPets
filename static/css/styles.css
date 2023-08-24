@@ -48,6 +48,7 @@ div.content {
 .form-contact label {
 	display: inline-block; 
 	min-width: 80px;
+
 }
 .form-contact p {margin: 10px 0 10px 0;}
 .form-contact input[type=submit], textarea {
@@ -69,19 +70,23 @@ ul.list-posts {
 	margin: 0;
 	padding: 0;
 	max-width: 600px;
+
 }
 ul.list-posts li {
 	margin: 20px 0 0 0;
 	border: 1px solid #eee;
+
 }
 ul.list-posts .title {
 	margin: 0;
 	padding: 5px;
 	background: #eee;
+
 }
 ul.list-posts .annonce {
 	margin: 0;
 	padding: 10px 5px 10px 5px;
+	
 }
 
 .profile-ava {
@@ -124,3 +129,21 @@ h2 { color: #7c795d; font-family: ‘Source Sans Pro’, sans-serif; font-size: 
 .subheader { font-size: 26px; font-weight: 300; color: #ffcc66; margin: 0 0 24px; }
 
 p { color: #4c4a37; font-family: ‘Source Sans Pro’, sans-serif; font-size: 18px; line-height: 32px; margin: 0 0 24px; }
+
+
+.textpole{
+	width: 30%;
+	border: none;
+	outline: none;
+	resize: none;
+	font-size: 130%;
+	overflow: hidden;
+}
+
+.profile-panel-2 {padding: 0 0 0 10px;}
+ul.profile-info {
+	list-style: none;
+	margin: 10px 0 0 0;
+	padding: 0;
+	color: #7E652F;
+}

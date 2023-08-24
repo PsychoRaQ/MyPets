@@ -23,7 +23,7 @@ class UserLogin(UserMixin):
         return self.__user['name'] if self.__user else "Без имени"
 
     def getAdminRoot(self):
-        return self.__user['admin'] if self.__user else 0
+        return True if self.__user['admin'] == 1 else False
 
     def getAvatar(self, app):
         img = False

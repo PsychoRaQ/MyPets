@@ -12,7 +12,7 @@
 </td>
 <td valign="top" class="profile-panel">
 <p class="title"><a href="{{url_for('showPet',id_pet=p.id)}}">{{p.name}}</a></p>
-<p class="annonce">Хозяин: {{p.owner}}</p>
+<p class="annonce">Хозяин: <a href="{{ url_for('profile',user_id=p.owner_id) }}">{{p.owner}}</a></p>
 <p class="annonce">Возраст: {{p.old}}</p>
 <p class="annonce">Ищет дом: {{ p.home }}</p>
 </td>

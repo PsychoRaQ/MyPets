@@ -9,10 +9,6 @@
 	<tr><td valign="top">
 		<div class="profile-ava"><img src="{{ url_for('userava') }}"></div>
 		<div class="profile-load">
-		<form action="{{url_for('upload')}}" method="POST" enctype="multipart/form-data">
-			<p><input type="file" name="file">
-			<p><input type="submit" value="Загрузить">
-		</form>
 		</div>
 	</td>
 	<td valign="top" class="profile-panel">
@@ -20,6 +16,8 @@
 		<ul class="profile-info">
 		<li>ФИО: {{ current_user.getUsername() }}</li>
 		<li>Email: {{ current_user.getEmail() }}</li>
+		<li><a href="{{ url_for('profile_edit') }}"><button>Редактировать профиль</button></a></li>
+		<li><a href="{{ url_for('my_request') }}"><button>Ваши обращения</button></a></li>
 		</ul>
 	</td></tr>
 </table>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ super() }}
+
+
+<ul class="list-posts" style="max-width: 1600px;">
+{% for p in posts %}
+<li>
+<table border="0" class="profile-table">
+<tr><td valign="top">
+<div>
+<p class="annonce"><b>Заявка №</b>{{p.id}}</p>
+<p class="annonce"><b>Дата и время заявки: </b>{{p.date}}</p>
+</div>
+</td>
+<td valign="top" class="profile-panel">
+<p class=""><b>Обращение: </b>{{ p.msg }}</p>
+<hr>
+<p class=""><b>Ответ администратора: </b>{{ p.resume }}</p>
+</td>
+<hr>
+</li>
+{% endfor %}
+</ul>
+{% endblock %}

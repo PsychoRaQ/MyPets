@@ -2,5 +2,10 @@
 
 {% block content %}
 {{ super() }}
-<p>Админка</p>
+<hr>
+<ul class="profile-info" style="font-size: 25px;">
+<li><a href="{{ url_for('admin_editProfile') }}">Редактирование профилей пользователей</a></li>
+<li><a href="{{ url_for('admin_editPet') }}">Редактирование профилей животных</a></li>
+<li><a href="{{ url_for('admin_resume') }}">Обращения</a></li>
+</ul>
 {% endblock %}
