@@ -226,3 +226,26 @@ def del_pet(id_pet):
             flash("Профиль питомца успешно удален", "success")
     return redirect(url_for('profile'))
 
+
+
+@app.route("/pet/<int:id_pet>")  # Обработчик профиля питомца
+def showPet(id_pet):
+    name, owner, old, home, foto_1 = dbase.getPet(id_pet)
+    if not name:
+        abort(404)
+    return render_template('pet_profile.html', menu=dbase.getMenu(), title=name, post=' '.join(["Хозяин: " + owner + " |", "Возраст: " + old]))
+
+@app.route("/getPetAva/<int:id_pet>") # Получение аватарки питомца
+def getPetAva(id_pet):
+    img = dbase.getPet(id_pet)['foto_1']
+    return img
+
+@app.route("/admin")
+@login_required
+def admin():
+    if current_user.getAdminRoot() != 1:
+        abort(404)
+    return render_template('admin.html', menu=dbase.getMenu(), title='Администрирование')
+
+if __name__ == "__main__":
+    app.run(debug=True)
